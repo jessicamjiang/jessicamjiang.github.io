@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio — Data Scientist | Aerospace Engineering Background</title>
+<title>Jessica Mona Jiang — Data Scientist & Aerospace Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -21,7 +21,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -32,7 +31,6 @@
     cursor: none;
   }
 
-  /* Custom cursor */
   .cursor {
     width: 12px; height: 12px;
     border: 2px solid var(--cyan);
@@ -53,7 +51,6 @@
     transition: left 0.15s ease, top 0.15s ease;
   }
 
-  /* Animated grid background */
   .grid-bg {
     position: fixed;
     inset: 0;
@@ -65,22 +62,17 @@
     z-index: 0;
   }
 
-  /* Scanline effect */
   .scanlines {
     position: fixed;
     inset: 0;
     background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0,0,0,0.08) 2px,
-      rgba(0,0,0,0.08) 4px
+      0deg, transparent, transparent 2px,
+      rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px
     );
     pointer-events: none;
     z-index: 1;
   }
 
-  /* Corner decorations */
   .corner-dec {
     position: absolute;
     width: 20px; height: 20px;
@@ -93,7 +85,6 @@
   .corner-dec.bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
   .corner-dec.br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -115,14 +106,9 @@
     color: var(--cyan);
     text-decoration: none;
   }
-
   .nav-logo span { color: var(--orange); }
 
-  nav ul {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
+  nav ul { display: flex; gap: 32px; list-style: none; }
 
   nav ul a {
     font-family: 'DM Mono', monospace;
@@ -144,7 +130,6 @@
     transform: scaleX(0);
     transition: transform 0.3s;
   }
-
   nav ul a:hover { color: var(--cyan); }
   nav ul a:hover::after { transform: scaleX(1); }
 
@@ -160,7 +145,8 @@
   }
 
   .hero-content {
-    max-width: 780px;
+    max-width: 760px;
+    opacity: 0;
     animation: fadeUp 1s ease both;
   }
 
@@ -177,18 +163,16 @@
     opacity: 0;
     animation: fadeUp 0.8s ease 0.2s both;
   }
-
   .hero-tag::before {
     content: '';
     display: block;
-    width: 40px;
-    height: 1px;
+    width: 40px; height: 1px;
     background: var(--orange);
   }
 
   h1 {
     font-family: 'Orbitron', monospace;
-    font-size: clamp(40px, 6vw, 80px);
+    font-size: clamp(36px, 5.5vw, 72px);
     font-weight: 900;
     line-height: 1.05;
     letter-spacing: -1px;
@@ -196,7 +180,6 @@
     opacity: 0;
     animation: fadeUp 0.8s ease 0.4s both;
   }
-
   h1 .line1 { color: var(--white); }
   h1 .line2 {
     color: var(--blue);
@@ -205,23 +188,44 @@
   }
 
   .hero-sub {
-    font-size: 18px;
+    font-size: 17px;
     color: var(--muted);
-    margin: 28px 0 48px;
+    margin: 28px 0 24px;
     line-height: 1.7;
-    max-width: 580px;
+    max-width: 600px;
     opacity: 0;
     animation: fadeUp 0.8s ease 0.6s both;
   }
-
   .hero-sub strong { color: var(--white); }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.7s both;
+  }
+
+  .hero-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 5px 14px;
+    border: 1px solid rgba(0,168,255,0.3);
+    color: var(--blue);
+    text-transform: uppercase;
+    background: rgba(0,168,255,0.05);
+    transition: all 0.2s;
+  }
+  .hero-badge:hover { border-color: var(--cyan); color: var(--cyan); }
 
   .hero-cta {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 0.8s ease 0.8s both;
+    animation: fadeUp 0.8s ease 0.9s both;
   }
 
   .btn-primary {
@@ -242,7 +246,6 @@
     transition: all 0.3s;
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
   }
-
   .btn-primary:hover {
     background: var(--cyan);
     box-shadow: var(--glow-strong);
@@ -265,21 +268,14 @@
     cursor: none;
     transition: all 0.3s;
   }
+  .btn-ghost:hover { border-color: var(--blue); color: var(--blue); box-shadow: inset 0 0 20px rgba(0,168,255,0.1); }
 
-  .btn-ghost:hover {
-    border-color: var(--blue);
-    color: var(--blue);
-    box-shadow: inset 0 0 20px rgba(0,168,255,0.1);
-  }
-
-  /* Animated plane/data stream on right */
   .hero-visual {
     position: absolute;
     right: -40px;
     top: 50%;
     transform: translateY(-50%);
-    width: 520px;
-    height: 520px;
+    width: 500px; height: 500px;
     opacity: 0;
     animation: fadeIn 1.2s ease 1s both;
   }
@@ -289,7 +285,6 @@
     border-radius: 50%;
     border: 1px solid rgba(0,168,255,0.15);
   }
-
   .radar-ring:nth-child(1) { inset: 0; animation: pulse-ring 3s ease-in-out infinite; }
   .radar-ring:nth-child(2) { inset: 15%; animation: pulse-ring 3s ease-in-out 0.5s infinite; }
   .radar-ring:nth-child(3) { inset: 30%; animation: pulse-ring 3s ease-in-out 1s infinite; }
@@ -312,7 +307,7 @@
     animation: blink 2s ease-in-out infinite;
   }
 
-  /* STATS BAR */
+  /* STATS */
   .stats-bar {
     position: relative;
     z-index: 2;
@@ -332,7 +327,6 @@
     opacity: 0;
     animation: fadeUp 0.6s ease both;
   }
-
   .stat-item:first-child { padding-left: 0; }
   .stat-item:last-child { border-right: none; }
   .stat-item:nth-child(1) { animation-delay: 0.1s; }
@@ -349,7 +343,6 @@
     line-height: 1;
     margin-bottom: 6px;
   }
-
   .stat-number span { font-size: 20px; color: var(--cyan); }
   .stat-label {
     font-family: 'DM Mono', monospace;
@@ -359,16 +352,14 @@
     text-transform: uppercase;
   }
 
-  /* SECTION BASE */
+  /* SECTIONS */
   section {
     position: relative;
     z-index: 2;
     padding: 100px 48px;
   }
 
-  .section-header {
-    margin-bottom: 64px;
-  }
+  .section-header { margin-bottom: 64px; }
 
   .section-tag {
     font-family: 'DM Mono', monospace;
@@ -381,7 +372,6 @@
     align-items: center;
     gap: 12px;
   }
-
   .section-tag::before {
     content: '';
     display: block;
@@ -391,19 +381,14 @@
 
   h2 {
     font-family: 'Orbitron', monospace;
-    font-size: clamp(28px, 4vw, 48px);
+    font-size: clamp(26px, 3.8vw, 46px);
     font-weight: 700;
     line-height: 1.1;
     color: var(--white);
   }
+  h2 em { font-style: normal; color: var(--blue); text-shadow: var(--glow); }
 
-  h2 em {
-    font-style: normal;
-    color: var(--blue);
-    text-shadow: var(--glow);
-  }
-
-  /* SKILLS SECTION */
+  /* SKILLS */
   #skills { background: var(--deep); }
 
   .skills-grid {
@@ -421,7 +406,6 @@
     transition: all 0.4s;
     cursor: none;
   }
-
   .skill-card::before {
     content: '';
     position: absolute;
@@ -430,10 +414,8 @@
     opacity: 0;
     transition: opacity 0.4s;
   }
-
   .skill-card:hover::before { opacity: 1; }
   .skill-card:hover { border-color: rgba(0,168,255,0.4); transform: translateY(-4px); }
-
   .skill-card::after {
     content: '';
     position: absolute;
@@ -443,18 +425,13 @@
     transform: scaleX(0);
     transition: transform 0.4s;
   }
-
   .skill-card:hover::after { transform: scaleX(1); }
 
-  .skill-icon {
-    font-size: 32px;
-    margin-bottom: 20px;
-    display: block;
-  }
+  .skill-icon { font-size: 32px; margin-bottom: 20px; display: block; }
 
   .skill-card h3 {
     font-family: 'Orbitron', monospace;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
     color: var(--white);
@@ -468,11 +445,7 @@
     margin-bottom: 24px;
   }
 
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
   .tag {
     font-family: 'DM Mono', monospace;
@@ -484,25 +457,17 @@
     text-transform: uppercase;
     transition: all 0.2s;
   }
+  .tag:hover { border-color: var(--blue); color: var(--blue); }
+  .tag.advanced { border-color: rgba(0,255,247,0.4); color: var(--cyan); }
 
-  .tag:hover {
-    border-color: var(--blue);
-    color: var(--blue);
-  }
-
-  /* EXPERIENCE SECTION */
+  /* EXPERIENCE */
   #experience { background: var(--black); }
 
-  .timeline {
-    position: relative;
-    max-width: 900px;
-  }
-
+  .timeline { position: relative; max-width: 900px; }
   .timeline::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0; bottom: 0;
+    left: 0; top: 0; bottom: 0;
     width: 1px;
     background: linear-gradient(180deg, var(--blue), transparent);
   }
@@ -514,16 +479,11 @@
     transform: translateX(-20px);
     transition: all 0.6s ease;
   }
-
-  .timeline-item.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
 
   .timeline-dot {
     position: absolute;
-    left: -5px;
-    top: 6px;
+    left: -5px; top: 6px;
     width: 11px; height: 11px;
     background: var(--blue);
     border-radius: 50%;
@@ -542,7 +502,7 @@
 
   .timeline-role {
     font-family: 'Orbitron', monospace;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--white);
     margin-bottom: 4px;
@@ -550,18 +510,14 @@
   }
 
   .timeline-company {
-    font-size: 13px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
     color: var(--blue);
     margin-bottom: 16px;
-    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.5px;
   }
 
-  .timeline-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .timeline-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 
   .timeline-bullets li {
     font-size: 14px;
@@ -570,7 +526,6 @@
     padding-left: 20px;
     position: relative;
   }
-
   .timeline-bullets li::before {
     content: '▸';
     position: absolute;
@@ -579,10 +534,9 @@
     font-size: 10px;
     top: 2px;
   }
-
   .timeline-bullets li strong { color: var(--white); }
 
-  /* PROJECTS SECTION */
+  /* PROJECTS */
   #projects { background: var(--deep); }
 
   .projects-grid {
@@ -599,31 +553,13 @@
     transition: all 0.4s;
     cursor: none;
   }
-
   .project-card:hover {
     border-color: rgba(0,168,255,0.5);
     transform: translateY(-8px);
     box-shadow: 0 24px 60px rgba(0,168,255,0.15);
   }
 
-  .project-img {
-    height: 180px;
-    background: var(--black);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .project-viz {
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-
-  /* Mini chart visualizations */
-  .mini-chart { width: 100%; height: 100%; }
+  .project-img { height: 180px; background: var(--black); position: relative; overflow: hidden; }
 
   .project-body { padding: 28px; }
 
@@ -637,7 +573,7 @@
 
   .project-card h3 {
     font-family: 'Orbitron', monospace;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--white);
     margin-bottom: 12px;
@@ -652,10 +588,7 @@
     margin-bottom: 20px;
   }
 
-  .project-links {
-    display: flex;
-    gap: 12px;
-  }
+  .project-links { display: flex; gap: 12px; flex-wrap: wrap; }
 
   .project-link {
     font-family: 'DM Mono', monospace;
@@ -668,48 +601,70 @@
     padding-bottom: 2px;
     transition: all 0.2s;
   }
-
-  .project-link:hover {
-    color: var(--cyan);
-    border-color: var(--cyan);
-  }
+  .project-link:hover { color: var(--cyan); border-color: var(--cyan); }
 
   .project-badge {
     position: absolute;
-    top: 16px; right: 16px;
+    top: 14px; right: 14px;
     font-family: 'DM Mono', monospace;
     font-size: 9px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     padding: 4px 10px;
-    background: rgba(255,107,53,0.15);
+    background: rgba(255,107,53,0.12);
     border: 1px solid var(--orange);
     color: var(--orange);
     text-transform: uppercase;
   }
 
-  /* UPLOAD SECTION */
-  #upload { background: var(--black); }
+  /* EDUCATION */
+  #education { background: var(--black); }
+
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+
+  .edu-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 36px;
+    transition: all 0.3s;
+    cursor: none;
+  }
+  .edu-card:hover { border-color: rgba(0,168,255,0.4); transform: translateY(-4px); }
+
+  .edu-icon { font-size: 28px; margin-bottom: 16px; }
+
+  .edu-card h3 {
+    font-family: 'Orbitron', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .edu-degree { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+
+  .edu-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--orange);
+    text-transform: uppercase;
+  }
+
+  /* UPLOAD */
+  #upload { background: var(--deep); }
 
   .upload-zone {
     border: 1px dashed rgba(0,168,255,0.3);
     padding: 64px;
     text-align: center;
-    position: relative;
     transition: all 0.3s;
     background: rgba(0,168,255,0.02);
     cursor: none;
   }
+  .upload-zone:hover { border-color: var(--blue); background: rgba(0,168,255,0.05); }
 
-  .upload-zone:hover {
-    border-color: var(--blue);
-    background: rgba(0,168,255,0.05);
-  }
-
-  .upload-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
-    opacity: 0.5;
-  }
+  .upload-icon { font-size: 48px; margin-bottom: 20px; opacity: 0.5; }
 
   .upload-zone h3 {
     font-family: 'Orbitron', monospace;
@@ -725,13 +680,7 @@
     font-family: 'DM Mono', monospace;
   }
 
-  .file-types {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 24px;
-  }
+  .file-types { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
 
   .file-type {
     font-family: 'DM Mono', monospace;
@@ -743,35 +692,21 @@
   }
 
   /* CONTACT */
-  #contact { background: var(--deep); }
+  #contact { background: var(--black); }
 
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 
   .contact-info h3 {
     font-family: 'Orbitron', monospace;
-    font-size: 22px;
+    font-size: 20px;
     color: var(--white);
     margin-bottom: 20px;
     line-height: 1.3;
   }
 
-  .contact-info p {
-    font-size: 15px;
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 36px;
-  }
+  .contact-info p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 36px; }
 
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
 
   .contact-link-item {
     display: flex;
@@ -784,36 +719,13 @@
     transition: all 0.3s;
     cursor: none;
   }
+  .contact-link-item:hover { border-color: var(--blue); background: rgba(0,168,255,0.05); transform: translateX(8px); }
 
-  .contact-link-item:hover {
-    border-color: var(--blue);
-    background: rgba(0,168,255,0.05);
-    transform: translateX(8px);
-  }
-
-  .contact-link-item .link-icon {
-    font-size: 20px;
-    width: 40px;
-    text-align: center;
-  }
-
-  .link-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
-
-  .link-value {
-    font-size: 14px;
-    color: var(--white);
-  }
+  .link-icon { font-size: 18px; width: 36px; text-align: center; }
+  .link-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 2px; }
+  .link-value { font-size: 14px; color: var(--white); }
 
   .contact-form { display: flex; flex-direction: column; gap: 16px; }
-
-  .form-group { position: relative; }
 
   .form-group label {
     display: block;
@@ -825,8 +737,7 @@
     margin-bottom: 8px;
   }
 
-  .form-group input,
-  .form-group textarea {
+  .form-group input, .form-group textarea {
     width: 100%;
     background: var(--panel);
     border: 1px solid var(--border);
@@ -838,11 +749,8 @@
     transition: border-color 0.3s;
     resize: none;
   }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--blue); }
 
-  .form-group input:focus,
-  .form-group textarea:focus { border-color: var(--blue); }
-
-  /* FOOTER */
   footer {
     position: relative;
     z-index: 2;
@@ -854,80 +762,32 @@
     background: var(--black);
   }
 
-  footer p {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 1px;
-  }
+  footer p { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 1px; }
 
-  .footer-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: #00ff88;
-  }
-
-  .status-dot {
-    width: 6px; height: 6px;
-    background: #00ff88;
-    border-radius: 50%;
-    animation: blink 1.5s ease-in-out infinite;
-  }
+  .footer-status { display: flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 11px; color: #00ff88; }
+  .status-dot { width: 6px; height: 6px; background: #00ff88; border-radius: 50%; animation: blink 1.5s ease-in-out infinite; }
 
   /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes sweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes pulse-ring { 0%,100% { opacity:0.15; transform:scale(1); } 50% { opacity:0.3; transform:scale(1.01); } }
+  @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+  @keyframes float-data { 0% { transform:translateY(0); opacity:1; } 100% { transform:translateY(-80px); opacity:0; } }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes sweep {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes pulse-ring {
-    0%, 100% { opacity: 0.15; transform: scale(1); }
-    50% { opacity: 0.3; transform: scale(1.01); }
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-
-  @keyframes float-data {
-    0% { transform: translateY(0px); opacity: 1; }
-    100% { transform: translateY(-80px); opacity: 0; }
-  }
-
-  @keyframes dash-scroll {
-    from { stroke-dashoffset: 0; }
-    to { stroke-dashoffset: -20; }
-  }
-
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--black); }
   ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
 
-  /* Responsive */
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
     nav ul { display: none; }
     section { padding: 80px 20px; }
     #hero { padding: 100px 20px 60px; }
-    .stats-bar { padding: 24px 20px; gap: 20px; flex-wrap: wrap; }
+    .stats-bar { padding: 24px 20px; flex-wrap: wrap; }
     .stat-item { border-right: none; padding: 0; }
-    .contact-grid { grid-template-columns: 1fr; }
     .hero-visual { display: none; }
+    .contact-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 12px; padding: 24px 20px; }
   }
 </style>
@@ -941,11 +801,12 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">DS<span>.</span>PORTFOLIO</a>
+  <a href="#hero" class="nav-logo">JESSICA<span>.</span>JIANG</a>
   <ul>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -958,21 +819,27 @@
   <div class="corner-dec br"></div>
 
   <div class="hero-content">
-    <div class="hero-tag">// data scientist | aerospace engineer</div>
+    <div class="hero-tag">// Data Scientist · Aerospace Engineer · Boeing</div>
     <h1>
-      <div class="line1">TURNING DATA</div>
-      <div class="line2">INTO DECISIONS</div>
+      <div class="line1">JESSICA MONA</div>
+      <div class="line2">JIANG</div>
     </h1>
     <p class="hero-sub">
-      <strong>6 years at Boeing</strong> — vibration engineer, software engineer, aerodynamicist, field service rep, and deputy chief of staff. Every role demanded one thing: extracting signal from data under pressure. Now I bring that engineering precision to data science.
+      <strong>6 years at Boeing</strong> — acoustics engineer, embedded systems developer, field service rep, deputy chief of staff, and aerodynamics software engineer. Every role demanded the same core skill: extracting signal from complex data under pressure. Now bringing that engineering precision full-time to data science.
     </p>
+    <div class="hero-badges">
+      <span class="hero-badge">Secret Clearance</span>
+      <span class="hero-badge">Stanford AI Certificate</span>
+      <span class="hero-badge">Cornell Data Science</span>
+      <span class="hero-badge">Georgia Tech BSME</span>
+      <span class="hero-badge">Boeing SWE Site Lead</span>
+    </div>
     <div class="hero-cta">
       <a href="#projects" class="btn-primary">View My Work →</a>
       <a href="#contact" class="btn-ghost">Get In Touch</a>
     </div>
   </div>
 
-  <!-- Radar viz -->
   <div class="hero-visual">
     <div class="radar-ring"></div>
     <div class="radar-ring"></div>
@@ -987,23 +854,23 @@
   </div>
 </section>
 
-<!-- STATS BAR -->
+<!-- STATS -->
 <div class="stats-bar">
   <div class="stat-item">
     <div class="stat-number">6<span>+</span></div>
     <div class="stat-label">Years at Boeing</div>
   </div>
   <div class="stat-item">
-    <div class="stat-number">5<span>×</span></div>
+    <div class="stat-number">5<span>+</span></div>
     <div class="stat-label">Engineering Roles</div>
   </div>
   <div class="stat-item">
-    <div class="stat-number">∞</div>
-    <div class="stat-label">Datasets Analyzed</div>
+    <div class="stat-number">3</div>
+    <div class="stat-label">DS Certifications</div>
   </div>
   <div class="stat-item">
-    <div class="stat-number">1<span>st</span></div>
-    <div class="stat-label">Principles Always</div>
+    <div class="stat-number">160<span>+</span></div>
+    <div class="stat-label">Tech Docs Qualified</div>
   </div>
 </div>
 
@@ -1013,81 +880,90 @@
     <div class="section-tag">// 02 — Capabilities</div>
     <h2>What I Bring to<br><em>Your Data Team</em></h2>
   </div>
-
   <div class="skills-grid">
+
     <div class="skill-card">
-      <span class="skill-icon">📊</span>
-      <h3>Data Visualization</h3>
-      <p>Built dashboards for flight vibration telemetry, structural load data, and aerodynamic performance metrics. I make complex data readable for engineers and executives alike.</p>
+      <span class="skill-icon">🐍</span>
+      <h3>Python & Data Engineering</h3>
+      <p>Advanced Python across multiple Boeing programs — building ETL pipelines, processing aerodynamic and acoustic datasets, and creating GUI tools enabling non-technical engineers to generate formal reports without writing a single line of code.</p>
       <div class="skill-tags">
-        <span class="tag">Python</span>
-        <span class="tag">Matplotlib</span>
-        <span class="tag">Plotly</span>
-        <span class="tag">Tableau</span>
-        <span class="tag">Power BI</span>
+        <span class="tag advanced">Python</span>
+        <span class="tag advanced">pandas</span>
+        <span class="tag advanced">Bash</span>
+        <span class="tag advanced">GitLab</span>
+        <span class="tag">SQL</span>
+        <span class="tag">VBA Macros</span>
+        <span class="tag">Agile / Jira</span>
       </div>
     </div>
 
     <div class="skill-card">
-      <span class="skill-icon">⚙️</span>
-      <h3>Automation & Scripting</h3>
-      <p>Automated flight test data pipelines, structural analysis workflows, and reporting systems — reducing manual analysis time from days to minutes across multiple Boeing programs.</p>
+      <span class="skill-icon">📊</span>
+      <h3>Data Visualization & Dashboards</h3>
+      <p>Built dashboards for Boeing's CTO and working engineers alike — from a Python Sankey chart tracking aerospace sustainability efforts to interactive GUIs plotting wind tunnel data into downloadable PDF reports.</p>
       <div class="skill-tags">
-        <span class="tag">Python</span>
+        <span class="tag advanced">matplotlib</span>
+        <span class="tag">Plotly</span>
+        <span class="tag">Django</span>
+        <span class="tag">HTML</span>
         <span class="tag">MATLAB</span>
-        <span class="tag">Bash</span>
-        <span class="tag">SQL</span>
-        <span class="tag">ETL Pipelines</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <span class="skill-icon">🤖</span>
+      <h3>Machine Learning & AI</h3>
+      <p>Stanford AI Certificate in Natural Language Understanding. Fine-tuned BERT models for domain-specific QA. Applied RBF machine learning for aerodynamic data correction. Leading an AI/ML capstone team at Georgia Tech.</p>
+      <div class="skill-tags">
+        <span class="tag">PyTorch</span>
+        <span class="tag">Hugging Face</span>
+        <span class="tag">BERT / NLP</span>
+        <span class="tag">RBF / ML</span>
+        <span class="tag">scikit-learn</span>
       </div>
     </div>
 
     <div class="skill-card">
       <span class="skill-icon">✈️</span>
-      <h3>Domain Expertise</h3>
-      <p>Deep understanding of aerospace systems data — vibration signatures, aerodynamic loads, structural fatigue cycles. This domain knowledge is irreplaceable in finding meaningful signals.</p>
+      <h3>Aerospace Domain Expertise</h3>
+      <p>Rare combination of aerodynamics, acoustics, vibration, and embedded systems knowledge. I know what the data means physically — an edge no pure data scientist can replicate without years of engineering context.</p>
       <div class="skill-tags">
-        <span class="tag">Time Series</span>
-        <span class="tag">Signal Processing</span>
-        <span class="tag">Structural Data</span>
-        <span class="tag">Systems Eng.</span>
+        <span class="tag">CFD Data</span>
+        <span class="tag">Wind Tunnel</span>
+        <span class="tag">Acoustics</span>
+        <span class="tag">Vibration</span>
+        <span class="tag">Flight Test</span>
+        <span class="tag">777X / X-66</span>
       </div>
     </div>
 
     <div class="skill-card">
-      <span class="skill-icon">🧠</span>
-      <h3>Cross-Functional Communication</h3>
-      <p>As Deputy Chief of Staff and Field Service Rep, I translated technical findings to senior leadership and customers. I don't just build models — I communicate what they mean.</p>
+      <span class="skill-icon">⚙️</span>
+      <h3>Software Engineering</h3>
+      <p>Full software lifecycle experience — from embedded C/C++ firmware for autonomous underwater vehicles and LS1088ARM chips, to Java performance tools for airline engineers, to Python toolchains in DevSecOps environments.</p>
       <div class="skill-tags">
-        <span class="tag">Executive Briefings</span>
-        <span class="tag">Stakeholder Mgmt</span>
+        <span class="tag">Java</span>
+        <span class="tag">C / C++</span>
+        <span class="tag">Fortran → Python</span>
+        <span class="tag">MATLAB Simulink</span>
+        <span class="tag">AWS</span>
+        <span class="tag">DevSecOps</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <span class="skill-icon">🎓</span>
+      <h3>Teaching & Communication</h3>
+      <p>Data Science TA at Georgia Tech — taught recitations on regex, web scraping, statistics, and decision trees for 50+ students. Prepared executive briefings for Boeing's CTO. I translate data clearly for any audience.</p>
+      <div class="skill-tags">
+        <span class="tag">Exec Briefings</span>
         <span class="tag">Technical Writing</span>
+        <span class="tag">Teaching</span>
+        <span class="tag">Stakeholder Mgmt</span>
+        <span class="tag">English / Mandarin</span>
       </div>
     </div>
 
-    <div class="skill-card">
-      <span class="skill-icon">🔬</span>
-      <h3>Statistical Analysis</h3>
-      <p>Applied statistical methods daily to vibration test results, aerodynamic predictions, and field performance data. Hypothesis testing, regression, and uncertainty quantification are second nature.</p>
-      <div class="skill-tags">
-        <span class="tag">Regression</span>
-        <span class="tag">Hypothesis Testing</span>
-        <span class="tag">Scipy</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">NumPy</span>
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <span class="skill-icon">🚀</span>
-      <h3>High-Stakes Delivery</h3>
-      <p>At Boeing, wrong analysis grounds aircraft. I bring a zero-defect mindset to data science — rigorous validation, documented assumptions, and results you can trust with lives on the line.</p>
-      <div class="skill-tags">
-        <span class="tag">Data Validation</span>
-        <span class="tag">Version Control</span>
-        <span class="tag">Git</span>
-        <span class="tag">Documentation</span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1097,66 +973,70 @@
     <div class="section-tag">// 03 — Career Timeline</div>
     <h2>6 Years of <em>Applied Data Science</em><br>at Boeing</h2>
   </div>
-
   <div class="timeline">
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Most Recent Role</div>
-      <div class="timeline-role">Deputy Chief of Staff</div>
-      <div class="timeline-company">The Boeing Company</div>
+      <div class="timeline-date">Oct 2024 – Present</div>
+      <div class="timeline-role">Aerodynamics Software Engineer</div>
+      <div class="timeline-company">The Boeing Company — Stability & Control & Flight Operations · Huntington Beach, CA</div>
       <ul class="timeline-bullets">
-        <li>Synthesized <strong>cross-program data</strong> into executive-level briefings, driving strategic decisions at the senior leadership level</li>
-        <li>Developed <strong>tracking dashboards</strong> to monitor program health metrics across engineering, schedule, and cost dimensions</li>
-        <li>Translated complex technical and operational data into clear narratives for non-technical stakeholders</li>
+        <li><strong>Leading a team of 5 engineers</strong> upgrading aerodynamic data processing tools in Python within a GitLab/Agile environment</li>
+        <li>Developed a <strong>GUI to plot wind tunnel data</strong>, enabling non-Python users to produce formal PDF reports instantly</li>
+        <li>Built tools to <strong>automate data and metadata creation</strong> supporting certification documentation for new and sustaining airplane models</li>
+        <li>Investigated <strong>CFD data for the X-66</strong> to correct Langley wind tunnel data for installation and Reynolds number effects</li>
+        <li>Developing airplane performance tool in <strong>Java</strong> used by airline engineers for enroute calculations and flight operations</li>
+        <li>Completes <strong>verification and validation (V&V)</strong> on X-66 simulator developed in Fortran and MATLAB</li>
       </ul>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Field Role</div>
-      <div class="timeline-role">Field Service Representative</div>
-      <div class="timeline-company">The Boeing Company</div>
+      <div class="timeline-date">Aug 2025 – Present</div>
+      <div class="timeline-role">Project Lead — Georgia Tech Capstone Sponsor</div>
+      <div class="timeline-company">Denning T&M Program · Georgia Institute of Technology</div>
       <ul class="timeline-bullets">
-        <li>Captured and analyzed <strong>real-world aircraft performance data</strong> from operational environments</li>
-        <li>Identified patterns in field discrepancies using <strong>data-driven root cause analysis</strong></li>
-        <li>Built feedback loops between field observations and engineering data systems</li>
+        <li>Leading and mentoring a <strong>multidisciplinary team of 5 students</strong> to develop an AI/ML solution for aerodynamic wind tunnel data processing</li>
+        <li>Defined project requirements, set milestones, and coordinated weekly meetings and in-person interviews with Boeing engineers</li>
       </ul>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Technical Role</div>
-      <div class="timeline-role">Aerodynamicist</div>
-      <div class="timeline-company">The Boeing Company</div>
+      <div class="timeline-date">July 2023 – Oct 2024</div>
+      <div class="timeline-role">Deputy Chief of Staff, Office of the CTO</div>
+      <div class="timeline-company">The Boeing Company — Office of Dr. Todd Citron, Chief Technology Officer</div>
       <ul class="timeline-bullets">
-        <li>Analyzed <strong>large CFD and flight test datasets</strong> to validate aerodynamic performance models</li>
-        <li>Scripted automated <strong>data processing pipelines</strong> to compare predicted vs. measured aerodynamic coefficients</li>
-        <li>Delivered performance analyses that directly influenced aircraft certification decisions</li>
+        <li>Gathered data on sustainability efforts across major aerospace companies and created a <strong>Sankey chart in Python</strong> for CTO-level presentations</li>
+        <li>Prepared executive charts, agendas, and logistics for the Boeing CTO & Executive Council for international, domestic, and external events</li>
+        <li>Developed <strong>reusable standard deck frameworks</strong> significantly reducing rework time across leadership deliverables</li>
       </ul>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Engineering Role</div>
-      <div class="timeline-role">Software Engineer</div>
-      <div class="timeline-company">The Boeing Company</div>
+      <div class="timeline-date">July 2021 – July 2023</div>
+      <div class="timeline-role">Multi-Skill Engineer — Engineering Career Foundation Program</div>
+      <div class="timeline-company">The Boeing Company · Seattle, Washington</div>
       <ul class="timeline-bullets">
-        <li>Developed <strong>data processing and visualization tools</strong> used across engineering programs</li>
-        <li>Built automation scripts to reduce manual data handling and analysis time by significant margins</li>
-        <li>Integrated disparate data sources into unified <strong>analysis platforms</strong></li>
+        <li><strong>Rotation 4 — Embedded SW Engineer, Wisk:</strong> Developed GPIO driver for LS1088ARM SoC in C; implemented codebase in AWS Boeing Software Factory</li>
+        <li><strong>Rotation 3 — Field Service Rep, BBJ & Leasing:</strong> Project managed leasing conference for 49 companies / 182 attendees, <strong>reducing planning time by 50%</strong></li>
+        <li><strong>Rotation 2 — Embedded Systems, Maritime Undersea:</strong> Developed C++ apps for XLUUV autonomous underwater vehicle simulation and 3D movement visualization</li>
+        <li><strong>Rotation 1 — Systems Engineer, Tech & Innovation:</strong> Incubated emerging technologies into a unified dashboard tool</li>
       </ul>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Foundation Role</div>
-      <div class="timeline-role">Vibration Engineer</div>
-      <div class="timeline-company">The Boeing Company</div>
+      <div class="timeline-date">Aug 2019 – July 2021</div>
+      <div class="timeline-role">Acoustics Engineer — Flight Sciences</div>
+      <div class="timeline-company">The Boeing Company · Mukilteo, Washington</div>
       <ul class="timeline-bullets">
-        <li>Analyzed <strong>terabytes of vibration telemetry data</strong> from flight tests and structural ground tests</li>
-        <li>Developed signal processing scripts to identify structural resonance patterns and anomalies</li>
-        <li>Created <strong>visualization dashboards</strong> to communicate structural health to certification teams</li>
+        <li>Developed a <strong>web application in Django / Python / HTML</strong> for database hosting, viewing, and filtering of airplane issue history</li>
+        <li><strong>Upgraded sonic fatigue prediction from Fortran to Python</strong>, modernizing a core legacy analysis tool</li>
+        <li>Instrumented and <strong>flight tested the 777X</strong> for vibration-related landing gear issues at Moses Lake, Washington</li>
+        <li>Led as <strong>Boeing Software Lead for Vibration</strong> — drove Python tool development across the acoustics team</li>
+        <li>Qualified <strong>160+ technical documents</strong> for 737, 747, 767, 787, and 777X as Sustaining Airplanes Project Leader</li>
       </ul>
     </div>
 
@@ -1169,122 +1049,152 @@
     <div class="section-tag">// 04 — Project Portfolio</div>
     <h2>Work That <em>Proves the Point</em></h2>
   </div>
-
   <div class="projects-grid">
 
     <div class="project-card">
-      <div class="project-img" style="background: linear-gradient(135deg, #050810 0%, #0b1a30 100%);">
-        <svg class="mini-chart" viewBox="0 0 340 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="project-img">
+        <svg width="100%" height="100%" viewBox="0 0 340 180" fill="none" style="background:linear-gradient(135deg,#050810,#0b1a30)">
           <polyline points="20,140 60,110 100,120 140,80 180,90 220,50 260,60 300,30" stroke="#00a8ff" stroke-width="2" fill="none" stroke-dasharray="4,2">
             <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"/>
           </polyline>
-          <polyline points="20,155 60,140 100,145 140,130 180,135 220,115 260,120 300,100" stroke="#00fff7" stroke-width="1.5" stroke-opacity="0.4" fill="none"/>
+          <polyline points="20,155 60,140 100,145 140,130 180,135 220,115 260,120 300,100" stroke="#00fff7" stroke-width="1.5" fill="none" opacity="0.4"/>
           <line x1="20" y1="20" x2="20" y2="160" stroke="#1a2540" stroke-width="1"/>
           <line x1="20" y1="160" x2="320" y2="160" stroke="#1a2540" stroke-width="1"/>
           <circle cx="300" cy="30" r="4" fill="#00fff7"><animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/></circle>
-          <text x="30" y="40" fill="#5a6a8a" font-size="10" font-family="monospace">VIBRATION FREQ. ANALYSIS</text>
+          <text x="30" y="40" fill="#5a6a8a" font-size="10" font-family="monospace">ENGINEERING DATA VIZ GUI</text>
         </svg>
       </div>
-      <div class="project-badge">Boeing</div>
+      <div class="project-badge">Python · pandas · GUI</div>
       <div class="project-body">
         <div class="project-num">// PROJECT 01</div>
-        <h3>Flight Vibration Anomaly Detection Dashboard</h3>
-        <p>Automated vibration signature analysis pipeline processing flight test telemetry. Reduced anomaly identification time from 3 days to 2 hours using Python signal processing.</p>
-        <div class="project-links">
-          <a href="#" class="project-link">View Code →</a>
-          <a href="#" class="project-link">Case Study →</a>
-        </div>
+        <h3>Engineering Data Analysis & Visualization Tool</h3>
+        <p>Python pipeline to ingest, clean, and analyze large engineering datasets. Interactive GUI for automated visualization and formal PDF report generation — built for non-technical users with zero Python knowledge required.</p>
+        <div class="project-links"><a href="#" class="project-link">View Code →</a><a href="#" class="project-link">Demo →</a></div>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-img" style="background: linear-gradient(135deg, #050810 0%, #1a0b08 100%);">
-        <svg class="mini-chart" viewBox="0 0 340 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="40" y="100" width="30" height="60" fill="#ff6b35" opacity="0.7"/>
-          <rect x="90" y="70" width="30" height="90" fill="#ff6b35" opacity="0.7"/>
-          <rect x="140" y="50" width="30" height="110" fill="#ff6b35" opacity="0.9"/>
-          <rect x="190" y="80" width="30" height="80" fill="#ff6b35" opacity="0.7"/>
-          <rect x="240" y="40" width="30" height="120" fill="#00a8ff" opacity="0.9"/>
-          <rect x="290" y="90" width="30" height="70" fill="#ff6b35" opacity="0.6"/>
-          <line x1="20" y1="160" x2="340" y2="160" stroke="#1a2540" stroke-width="1"/>
-          <text x="30" y="30" fill="#5a6a8a" font-size="10" font-family="monospace">AERO PERFORMANCE METRICS</text>
+      <div class="project-img">
+        <svg width="100%" height="100%" viewBox="0 0 340 180" fill="none" style="background:linear-gradient(135deg,#050810,#0d0a1a)">
+          <rect x="30" y="50" width="280" height="80" rx="4" fill="#0b1120" stroke="#1a2540"/>
+          <rect x="45" y="63" width="160" height="12" rx="2" fill="#9b6b7a" opacity="0.7"/>
+          <rect x="45" y="83" width="200" height="12" rx="2" fill="#00a8ff" opacity="0.5"/>
+          <rect x="45" y="103" width="120" height="12" rx="2" fill="#00fff7" opacity="0.4"/>
+          <circle cx="270" cy="90" r="30" stroke="#00a8ff" stroke-width="1" fill="none" opacity="0.3"/>
+          <circle cx="270" cy="90" r="18" stroke="#00fff7" stroke-width="1" fill="none" opacity="0.5"/>
+          <circle cx="270" cy="90" r="5" fill="#00fff7" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/></circle>
+          <text x="30" y="36" fill="#5a6a8a" font-size="10" font-family="monospace">BERT NLP · QUESTION ANSWERING</text>
         </svg>
       </div>
-      <div class="project-badge">Aerospace</div>
+      <div class="project-badge">PyTorch · NLP · Stanford AI</div>
       <div class="project-body">
         <div class="project-num">// PROJECT 02</div>
-        <h3>Aerodynamic Performance Prediction Model</h3>
-        <p>Regression model comparing CFD predictions against flight test measurements. Achieved 94% accuracy and identified systematic bias in legacy prediction tools.</p>
-        <div class="project-links">
-          <a href="#" class="project-link">View Code →</a>
-          <a href="#" class="project-link">Results →</a>
-        </div>
+        <h3>BERT Question Answering System — NLP / ML</h3>
+        <p>Fine-tuned a BERT model on domain-specific QA datasets using PyTorch and Hugging Face. Improved contextual understanding for real-world aerospace problem spaces. Stanford AI Certificate capstone.</p>
+        <div class="project-links"><a href="#" class="project-link">View Code →</a><a href="#" class="project-link">Write-Up →</a></div>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-img" style="background: linear-gradient(135deg, #050810 0%, #071a10 100%);">
-        <svg class="mini-chart" viewBox="0 0 340 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="170" cy="90" r="70" stroke="#00fff7" stroke-width="1" stroke-opacity="0.2" fill="none"/>
-          <circle cx="170" cy="90" r="50" stroke="#00fff7" stroke-width="1" stroke-opacity="0.3" fill="none"/>
-          <circle cx="170" cy="90" r="30" stroke="#00fff7" stroke-width="1" stroke-opacity="0.5" fill="none"/>
-          <line x1="170" y1="20" x2="230" y2="70" stroke="#00a8ff" stroke-width="1.5" opacity="0.8"/>
-          <circle cx="230" cy="70" r="5" fill="#00a8ff"/>
-          <circle cx="140" cy="115" r="7" fill="#00fff7" opacity="0.9"><animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.5s" repeatCount="indefinite"/></circle>
-          <circle cx="200" cy="60" r="4" fill="#ff6b35"/>
-          <circle cx="155" cy="75" r="3" fill="#00fff7" opacity="0.7"/>
-          <text x="30" y="30" fill="#5a6a8a" font-size="10" font-family="monospace">FIELD DATA CLUSTERING</text>
+      <div class="project-img">
+        <svg width="100%" height="100%" viewBox="0 0 340 180" fill="none" style="background:linear-gradient(135deg,#050810,#071a10)">
+          <circle cx="170" cy="90" r="70" stroke="#00fff7" stroke-width="1" fill="none" opacity="0.2"/>
+          <circle cx="170" cy="90" r="50" stroke="#00fff7" stroke-width="1" fill="none" opacity="0.3"/>
+          <circle cx="170" cy="90" r="30" stroke="#00fff7" stroke-width="1.5" fill="none" opacity="0.5"/>
+          <circle cx="220" cy="58" r="6" fill="#00a8ff" opacity="0.9"/>
+          <circle cx="135" cy="120" r="8" fill="#00fff7" opacity="0.8"><animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.5s" repeatCount="indefinite"/></circle>
+          <circle cx="195" cy="110" r="4" fill="#ff6b35" opacity="0.9"/>
+          <circle cx="150" cy="70" r="5" fill="#00fff7" opacity="0.6"/>
+          <line x1="170" y1="20" x2="220" y2="58" stroke="#00a8ff" stroke-width="1" opacity="0.4"/>
+          <text x="30" y="30" fill="#5a6a8a" font-size="10" font-family="monospace">AERO DATA · RBF MACHINE LEARNING</text>
         </svg>
       </div>
-      <div class="project-badge">Field Ops</div>
+      <div class="project-badge">Python · RBF · ML</div>
       <div class="project-body">
         <div class="project-num">// PROJECT 03</div>
-        <h3>Field Discrepancy Pattern Analysis</h3>
-        <p>Clustering analysis on field service reports across aircraft fleet to surface recurring failure patterns. Identified 3 systemic issues previously treated as isolated incidents.</p>
-        <div class="project-links">
-          <a href="#" class="project-link">Notebook →</a>
-          <a href="#" class="project-link">Summary →</a>
-        </div>
+        <h3>Aerodynamic Data Processing Toolset with RBF ML</h3>
+        <p>Leading tool development for aerodynamic data reduction and Reynolds number corrections using Radial Basis Function machine learning. Full project management and hosting in GitLab with team collaboration.</p>
+        <div class="project-links"><a href="#" class="project-link">GitLab Repo →</a><a href="#" class="project-link">Technical Notes →</a></div>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-img" style="background: linear-gradient(135deg, #050810 0%, #0a0818 100%);">
-        <svg class="mini-chart" viewBox="0 0 340 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="30" y="30" width="280" height="40" rx="4" fill="#0b1120" stroke="#1a2540" stroke-width="1"/>
-          <rect x="40" y="40" width="160" height="20" rx="2" fill="#00a8ff" opacity="0.7"/>
-          <rect x="30" y="85" width="280" height="40" rx="4" fill="#0b1120" stroke="#1a2540" stroke-width="1"/>
-          <rect x="40" y="95" width="220" height="20" rx="2" fill="#ff6b35" opacity="0.7"/>
-          <rect x="30" y="140" width="280" height="28" rx="4" fill="#0b1120" stroke="#1a2540" stroke-width="1"/>
-          <rect x="40" y="148" width="100" height="12" rx="2" fill="#00fff7" opacity="0.7"/>
-          <text x="210" y="55" fill="#00a8ff" font-size="9" font-family="monospace">57%</text>
-          <text x="265" y="110" fill="#ff6b35" font-size="9" font-family="monospace">78%</text>
-          <text x="145" y="158" fill="#00fff7" font-size="9" font-family="monospace">36%</text>
-          <text x="30" y="20" fill="#5a6a8a" font-size="10" font-family="monospace">EXEC DASHBOARD — KPI TRACKER</text>
+      <div class="project-img">
+        <svg width="100%" height="100%" viewBox="0 0 340 180" fill="none" style="background:linear-gradient(135deg,#050810,#0a0818)">
+          <!-- Sankey flow -->
+          <rect x="20" y="45" width="60" height="18" rx="2" fill="#ff6b35" opacity="0.5"/>
+          <rect x="20" y="72" width="60" height="14" rx="2" fill="#00a8ff" opacity="0.5"/>
+          <rect x="20" y="95" width="60" height="10" rx="2" fill="#00fff7" opacity="0.4"/>
+          <path d="M80,54 Q145,54 145,82" stroke="#ff6b35" stroke-width="10" fill="none" opacity="0.2"/>
+          <path d="M80,79 Q145,79 145,82" stroke="#00a8ff" stroke-width="7" fill="none" opacity="0.2"/>
+          <path d="M80,100 Q145,100 145,82" stroke="#00fff7" stroke-width="5" fill="none" opacity="0.2"/>
+          <rect x="145" y="65" width="50" height="35" rx="2" fill="#1a2540" stroke="#00a8ff" stroke-width="1" opacity="0.7"/>
+          <path d="M195,72 Q250,55 270,45" stroke="#ff6b35" stroke-width="8" fill="none" opacity="0.2"/>
+          <path d="M195,82 Q250,82 270,82" stroke="#00a8ff" stroke-width="6" fill="none" opacity="0.2"/>
+          <path d="M195,92 Q250,108 270,118" stroke="#00fff7" stroke-width="4" fill="none" opacity="0.2"/>
+          <rect x="270" y="36" width="50" height="16" rx="2" fill="#ff6b35" opacity="0.4"/>
+          <rect x="270" y="74" width="50" height="16" rx="2" fill="#00a8ff" opacity="0.4"/>
+          <rect x="270" y="110" width="50" height="14" rx="2" fill="#00fff7" opacity="0.3"/>
+          <text x="20" y="28" fill="#5a6a8a" font-size="10" font-family="monospace">AEROSPACE SUSTAINABILITY SANKEY</text>
         </svg>
       </div>
-      <div class="project-badge">Leadership</div>
+      <div class="project-badge">Python · CTO Office</div>
       <div class="project-body">
         <div class="project-num">// PROJECT 04</div>
-        <h3>Executive Program Health Dashboard</h3>
-        <p>Automated weekly reporting dashboard for senior leadership. Consolidated 12 data sources into a single live view, eliminating 8 hours of manual reporting per week.</p>
-        <div class="project-links">
-          <a href="#" class="project-link">Demo →</a>
-          <a href="#" class="project-link">Technical Notes →</a>
-        </div>
+        <h3>Aerospace Sustainability Visualization — Boeing CTO</h3>
+        <p>Gathered sustainability data across major aerospace companies and built a Sankey chart in Python visualizing combined industry efforts. Presented directly to Boeing's Chief Technology Officer and Executive Council.</p>
+        <div class="project-links"><a href="#" class="project-link">View Code →</a><a href="#" class="project-link">Case Study →</a></div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- UPLOAD YOUR WORK -->
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <div class="section-tag">// 05 — Education & Certifications</div>
+    <h2>Built on a Foundation of<br><em>Continuous Learning</em></h2>
+  </div>
+  <div class="edu-grid">
+
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <h3>Georgia Institute of Technology</h3>
+      <div class="edu-degree">B.S. Mechanical Engineering<br>Minor in Business & Engineering — Denning T&M Program<br>GPA: 3.3</div>
+      <div class="edu-meta">May 2019 · Atlanta, Georgia</div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-icon">🧠</div>
+      <h3>Stanford University</h3>
+      <div class="edu-degree">Artificial Intelligence Certificate<br>Natural Language Understanding</div>
+      <div class="edu-meta">Stanford Online · Completed</div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-icon">📊</div>
+      <h3>Cornell University</h3>
+      <div class="edu-degree">Data Science Certificate<br>Data Analysis, Association Rules, PCA, Factor Analysis</div>
+      <div class="edu-meta">eCornell · Completed</div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-icon">👩‍🏫</div>
+      <h3>Georgia Tech — Data Science TA</h3>
+      <div class="edu-degree">Taught recitations on regex, GUIs, web scraping, statistics, and decision trees for 50+ students per section. Hosted office hours and graded assignments.</div>
+      <div class="edu-meta">Georgia Institute of Technology</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- UPLOAD -->
 <section id="upload">
   <div class="section-header">
-    <div class="section-tag">// 05 — Upload Your Work</div>
+    <div class="section-tag">// 06 — Upload Your Work</div>
     <h2>Add Your <em>Own Projects</em></h2>
   </div>
-
   <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
     <div class="upload-icon">⬆</div>
     <h3>Drop Your Project Files Here</h3>
@@ -1300,75 +1210,57 @@
     </div>
     <input type="file" id="fileInput" multiple style="display:none" accept=".ipynb,.py,.pdf,.html,.csv,.xlsx,.png,.jpg">
   </div>
-
-  <div id="uploadedFiles" style="margin-top:24px; display:flex; flex-wrap:wrap; gap:12px;"></div>
+  <div id="uploadedFiles" style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;"></div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-header">
-    <div class="section-tag">// 06 — Get In Touch</div>
-    <h2>Ready to Bring <em>Aerospace Precision</em><br>to Your Data</h2>
+    <div class="section-tag">// 07 — Get In Touch</div>
+    <h2>Ready to Bring <em>Aerospace Precision</em><br>to Your Data Team</h2>
   </div>
-
   <div class="contact-grid">
     <div class="contact-info">
       <h3>Let's talk about what your data is trying to tell you.</h3>
-      <p>I've spent 6 years at Boeing making critical decisions based on data. I'm ready to bring that same rigor, domain intuition, and communication clarity to a data science role at your company.</p>
+      <p>I've spent 6 years at Boeing building data tools, automating engineering pipelines, and presenting insights directly to the CTO. I hold AI and Data Science certifications from Stanford and Cornell — and I'm ready to bring all of it to a dedicated data science role.</p>
       <div class="contact-links">
-        <a href="mailto:your@email.com" class="contact-link-item">
+        <a href="mailto:Jessicamjiang@gmail.com" class="contact-link-item">
           <span class="link-icon">✉</span>
-          <div>
-            <div class="link-label">Email</div>
-            <div class="link-value">your@email.com</div>
-          </div>
+          <div><div class="link-label">Email</div><div class="link-value">Jessicamjiang@gmail.com</div></div>
         </a>
-        <a href="https://linkedin.com/in/yourprofile" class="contact-link-item" target="_blank">
+        <a href="tel:+14042422057" class="contact-link-item">
+          <span class="link-icon">📱</span>
+          <div><div class="link-label">Phone</div><div class="link-value">+1 (404) 242-2057</div></div>
+        </a>
+        <a href="https://linkedin.com/in/jessica-jiang" class="contact-link-item" target="_blank">
           <span class="link-icon">in</span>
-          <div>
-            <div class="link-label">LinkedIn</div>
-            <div class="link-value">linkedin.com/in/yourprofile</div>
-          </div>
+          <div><div class="link-label">LinkedIn</div><div class="link-value">linkedin.com/in/jessica-jiang</div></div>
         </a>
-        <a href="https://github.com/yourusername" class="contact-link-item" target="_blank">
-          <span class="link-icon">⌥</span>
-          <div>
-            <div class="link-label">GitHub</div>
-            <div class="link-value">github.com/yourusername</div>
-          </div>
+        <a href="#" class="contact-link-item">
+          <span class="link-icon">📍</span>
+          <div><div class="link-label">Location</div><div class="link-value">Southern California 90803 · U.S. Citizen · Secret Clearance</div></div>
         </a>
       </div>
     </div>
-
     <div class="contact-form">
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" placeholder="Jane Smith, Hiring Manager">
-      </div>
-      <div class="form-group">
-        <label>Company</label>
-        <input type="text" placeholder="Acme Corp">
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea rows="5" placeholder="Tell me about the role..."></textarea>
-      </div>
-      <button class="btn-primary" style="align-self:flex-start; border:none; font-family:'DM Mono',monospace; cursor:none;" onclick="alert('Message sent! I will be in touch soon.')">Send Message →</button>
+      <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith, Hiring Manager"></div>
+      <div class="form-group"><label>Company</label><input type="text" placeholder="Your Company"></div>
+      <div class="form-group"><label>Message</label><textarea rows="5" placeholder="Tell me about the role..."></textarea></div>
+      <button class="btn-primary" style="align-self:flex-start;border:none;font-family:'DM Mono',monospace;cursor:none;" onclick="alert('Thank you! Jessica will be in touch soon.')">Send Message →</button>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 — Built to show, not just tell.</p>
+  <p>© 2025 Jessica Mona Jiang — Built to show, not just tell.</p>
   <div class="footer-status">
     <div class="status-dot"></div>
-    Open to opportunities
+    Open to Data Science opportunities
   </div>
 </footer>
 
 <script>
-  // Custom cursor
   const cursor = document.getElementById('cursor');
   const trail = document.getElementById('cursorTrail');
 
@@ -1381,82 +1273,41 @@
     }, 80);
   });
 
-  document.querySelectorAll('a, button, .skill-card, .project-card, .upload-zone, .contact-link-item').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'scale(2.5)';
-      cursor.style.borderColor = '#ff6b35';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'scale(1)';
-      cursor.style.borderColor = '#00fff7';
-    });
+  document.querySelectorAll('a, button, .skill-card, .project-card, .edu-card, .upload-zone, .contact-link-item').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2.5)'; cursor.style.borderColor = '#ff6b35'; });
+    el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; cursor.style.borderColor = '#00fff7'; });
   });
 
-  // Scroll reveal for timeline
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.2 });
-
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
   document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
 
-  // Smooth nav active state
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav ul a');
-
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--cyan)' : '';
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id'); });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--cyan)' : ''; });
   });
 
-  // File upload handler
-  document.getElementById('fileInput').addEventListener('change', function(e) {
+  document.getElementById('fileInput').addEventListener('change', function() {
     const container = document.getElementById('uploadedFiles');
     Array.from(this.files).forEach(file => {
       const chip = document.createElement('div');
-      chip.style.cssText = `
-        padding: 10px 18px;
-        background: var(--panel);
-        border: 1px solid var(--blue);
-        font-family: 'DM Mono', monospace;
-        font-size: 11px;
-        color: var(--blue);
-        letter-spacing: 1px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      `;
-      chip.innerHTML = `✓ ${file.name}`;
+      chip.style.cssText = 'padding:10px 18px;background:var(--panel);border:1px solid var(--blue);font-family:"DM Mono",monospace;font-size:11px;color:var(--blue);letter-spacing:1px;display:flex;align-items:center;gap:8px;';
+      chip.innerHTML = '✓ ' + file.name;
       container.appendChild(chip);
     });
   });
 
-  // Floating data particles
   function createParticle() {
     const p = document.createElement('div');
     const x = Math.random() * window.innerWidth;
-    p.style.cssText = `
-      position: fixed;
-      left: ${x}px;
-      bottom: 0;
-      width: 2px;
-      height: 2px;
-      background: rgba(0,168,255,0.4);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 1;
-      animation: float-data ${3 + Math.random() * 4}s linear forwards;
-    `;
+    p.style.cssText = `position:fixed;left:${x}px;bottom:0;width:2px;height:2px;background:rgba(0,168,255,0.4);border-radius:50%;pointer-events:none;z-index:1;animation:float-data ${3+Math.random()*4}s linear forwards;`;
     document.body.appendChild(p);
     setTimeout(() => p.remove(), 7000);
   }
-
   setInterval(createParticle, 800);
 </script>
 </body>
